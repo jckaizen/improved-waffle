@@ -1,0 +1,14 @@
+[Unit]
+Description=Start process manager(gunicorn) responsible for starting fastAPI applciation
+After=network.target
+
+[Service]
+User=july
+Group=july
+WorkingDirectory=/home/july/app/src/
+Environment="PATH=/home/july/app/venv/bin"
+EnvironmentFile=/home/july/.env
+ExecStart=/home/july/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
