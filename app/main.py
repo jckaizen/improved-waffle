@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .database import engine 
+from .database import SQLALCHEMY_DATABASE_URL
 from .routers import post, user, auth, vote
 from . import models
 from .config import Settings
@@ -41,4 +41,5 @@ app.include_router(vote.router)
 
 @app.get("/")
 async def main():
-    return {"message": "Hello World!!!!"}
+    print(SQLALCHEMY_DATABASE_URL)
+    return {"message": "Hello World"}
