@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from .config import settings 
+from .config import settings
 
 
-SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
 
 print(SQLALCHEMY_DATABASE_URL)
 
@@ -16,12 +16,13 @@ Base = declarative_base()
 
 
 def get_db():
-    # session is responible for talking to the database 
+    # session is responible for talking to the database
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
 
 # while True:
 #     try:
@@ -34,5 +35,3 @@ def get_db():
 #         print("Failed connection to database")
 #         print("Error: ", error)
 #         time.sleep(3)
-
-
