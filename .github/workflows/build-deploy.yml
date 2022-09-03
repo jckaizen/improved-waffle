@@ -1,0 +1,11 @@
+name: Build and Deploy Code
+on: [push, pull_request] # on all branches
+
+jobs:
+  job1:
+    runs-on: unbuntu-lastest
+    steps:
+      - name: pulling git repo
+        uses: actions/checkout@v2
+      - name: say hi
+        run: echo "hello"
