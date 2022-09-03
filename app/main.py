@@ -43,4 +43,4 @@ app.include_router(vote.router)
 @app.get("/")
 async def main():
     print(SQLALCHEMY_DATABASE_URL)
-    return {"message": "Hello World successfully deployed from CI/CD pipeline"}
+    return {"message": "Hello World pushing out to ubuntu"}
