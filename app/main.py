@@ -43,4 +43,4 @@ app.include_router(vote.router)
 @app.get("/")
 async def main():
     print(SQLALCHEMY_DATABASE_URL)
-    return {"message": "Hello World"}
+    return {"message": "Hello World "}
